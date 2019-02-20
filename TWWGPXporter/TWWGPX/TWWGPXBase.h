@@ -20,6 +20,6 @@
 
 @property NSString *name;
 @property NSString *desc;
-@property NSArray  *link;
+@property NSArray  *links;
 
 @end

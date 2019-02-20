@@ -14,6 +14,9 @@
  *  Two lat/lon pairs defining the extent of an element.
  *
  */
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TWWGPXBounds : TWWGPX
 
 /** The minimum latitude.
@@ -31,5 +34,7 @@
 /** The maximum longitude.
  */
 @property NSNumber *maxLon;
+
+NS_ASSUME_NONNULL_END
 
 @end

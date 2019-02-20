@@ -74,5 +74,39 @@
     return self;
 }
 
+- (NSString *) toXMLString {
+    
+    NSMutableString *returnString = [NSMutableString stringWithFormat:@"<gpx version=\"%@\"", _version];
+    if(_creator && ![_creator isEqualToString:@""]) {
+        [returnString appendFormat:@" creator=\"%@\"", _creator];
+    }
+    [returnString appendString:@">"];
+    
+    if(_metadata) {
+        [returnString appendString:[_metadata toXMLString]];
+    }
+    
+    if(_waypoints) {
+        for(TWWGPXWaypoint *wpt in _waypoints) {
+            [returnString appendString:[wpt toXMLString]];
+        }
+    }
+    
+    if(_routes) {
+        for(TWWGPXRoute *route in _routes) {
+            [returnString appendString:[route toXMLString]];
+        }
+    }
+    
+    if(_tracks) {
+        for(TWWGPXTrack *track in _tracks) {
+            [returnString appendString:[track toXMLString]];
+        }
+    }
+    
+    [returnString appendString:@"</gpx>"];
+    return [returnString copy];
+}
+
 
 @end

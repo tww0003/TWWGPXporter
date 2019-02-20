@@ -24,4 +24,9 @@
     return self;
 }
 
+// let the subclasses implement this one
+- (void) addPoint:(TWWGPXPoint *) point {
+    
+}
+
 @end

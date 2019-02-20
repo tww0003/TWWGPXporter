@@ -27,5 +27,15 @@
     }
 }
 
+- (NSString *) toXMLString {
+    NSMutableString *returnString = [NSMutableString stringWithFormat:@"<trkseg>"];
+    if(_trackPoints) {
+        for(TWWGPXTrackPoint *trkpt in _trackPoints) {
+            [returnString appendString:[trkpt toXMLString]];
+        }
+    }
+    [returnString appendString:@"</trkseg>"];
+    return [returnString copy];
+}
 
 @end

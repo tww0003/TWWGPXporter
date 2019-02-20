@@ -11,13 +11,22 @@
 @implementation TWWGPXUtil
 
 + (NSString *) getCurrentTimeAsString {
-    NSISO8601DateFormatter *df = [[NSISO8601DateFormatter alloc] init];
-    return [df stringFromDate:[NSDate new]];
+    return [TWWGPXUtil stringFromDate:[NSDate new]];
 }
 
 + (NSDate *) dateFromString:(NSString *) date {
     NSISO8601DateFormatter *df = [[NSISO8601DateFormatter alloc] init];
     return [df dateFromString:date];
+}
+
++ (NSString *) stringFromDate:(NSDate *) date {
+    NSISO8601DateFormatter *df = [[NSISO8601DateFormatter alloc] init];
+    return [df stringFromDate:date];
+}
+
++ (BOOL) isNotEmptyString:(NSString *) inStr {
+    if(inStr && ![inStr isEqualToString:@""]) return YES;
+    return NO;
 }
 
 @end

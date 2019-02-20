@@ -7,6 +7,7 @@
 //
 
 #import "TWWGPXMetadata.h"
+#import "TWWGPXUtil.h"
 
 @implementation TWWGPXMetadata
 
@@ -30,7 +31,7 @@
     return self;
 }
 
-- (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright time:(NSDate *) time andKeywords:(NSArray *)keywords {
+- (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright time:(NSDate *) time andKeywords:(NSString *) keywords {
     self = [self initWithAuthor:author copyright:copyright time:time keywords:keywords andBounds:nil];
     return self;
 }
@@ -38,7 +39,7 @@
 - (id) initWithAuthor:(TWWGPXPerson *) author
             copyright:(TWWGPXCopyright *) copyright
                  time:(NSDate *) time
-             keywords:(NSArray *)keywords
+             keywords:(NSString *)keywords
             andBounds:(TWWGPXBounds *) bounds {
     
     self = [super init];
@@ -50,6 +51,46 @@
         _bounds = bounds;
     }
     return self;
+}
+
+- (NSString *) toXMLString {
+    NSMutableString *returnString = [NSMutableString stringWithFormat:@"<metadata>"];
+    
+    if(self.name && ![self.name isEqualToString:@""]) {
+        [returnString appendFormat:@"<name>%@</name>", self.name];
+    }
+    
+    if(self.desc && ![self.desc isEqualToString:@""]) {
+        [returnString appendFormat:@"<desc>%@</desc>", self.desc];
+    }
+    
+    if(_author) {
+        [returnString appendFormat:@"<author>%@</author>",[_author toXMLString]];
+    }
+    
+    if(_copyright) {
+        [returnString appendString:[_copyright toXMLString]];
+    }
+    
+    if(self.links) {
+        for(TWWGPXLink *link in self.links) {
+            [returnString appendString:[link toXMLString]];
+        }
+    }
+    
+    if(_time) {
+        [returnString appendFormat:@"<time>%@</time>", [TWWGPXUtil stringFromDate:_time]];
+    }
+    
+    if(_keywords && ![_keywords isEqualToString:@""]) {
+        [returnString appendFormat:@"<keywords>%@</keywords>", _keywords];
+    }
+    
+    if(_bounds) {
+        [returnString appendString:[_bounds toXMLString]];
+    }
+    
+    return [returnString copy];
 }
 
 

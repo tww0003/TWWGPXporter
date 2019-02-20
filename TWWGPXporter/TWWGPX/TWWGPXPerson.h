@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TWWGPXEmail.h"
 #import "TWWGPXLink.h"
 #import "TWWGPX.h"
 
@@ -24,10 +25,14 @@
 
 /** Email address.
  */
-@property NSString *email;
+@property TWWGPXEmail *email;
 
 /** Link to Web site or other external information about person.
  */
 @property TWWGPXLink *link;
+
+- (id) initWithName:(NSString *) name;
+- (id) initWithName:(NSString *) name andEmail:(TWWGPXEmail *) email;
+- (id) initWithName:(NSString *) name email:(TWWGPXEmail *) email andLink:(TWWGPXLink *) link;
 
 @end

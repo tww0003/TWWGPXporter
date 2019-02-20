@@ -10,4 +10,12 @@
 
 @implementation TWWGPXRoutePoint
 
+- (id) init {
+    self = [super init];
+    if(self) {
+        self.pointType = @"rtept";
+    }
+    return self;
+}
+
 @end

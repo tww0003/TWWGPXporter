@@ -10,4 +10,12 @@
 
 @implementation TWWGPXTrackPoint
 
+- (id) init {
+    self = [super init];
+    if(self) {
+        self.pointType = @"trkpt";
+    }
+    return self;
+}
+
 @end

@@ -31,4 +31,8 @@
  */
 @property NSURL *license;
 
+- (id) initWithAuthor:(NSString *) author;
+- (id) initWithAuthor:(NSString *) author andYear:(NSNumber *) year;
+- (id) initWithAuthor:(NSString *) author year:(NSNumber *) year andLicense:(NSURL *) license;
+
 @end

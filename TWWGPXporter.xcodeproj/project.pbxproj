@@ -31,6 +31,7 @@
 		869340EA221DC78C008510B8 /* TWWGPXDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340E9221DC78C008510B8 /* TWWGPXDataBase.m */; };
 		869340ED221DC991008510B8 /* TWWGPX.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340EC221DC991008510B8 /* TWWGPX.m */; };
 		869340F3221DCFA6008510B8 /* TWWGPXUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340F2221DCFA6008510B8 /* TWWGPXUtil.m */; };
+		869340F6221DE3F8008510B8 /* TWWGPXEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340F5221DE3F8008510B8 /* TWWGPXEmail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		869340EC221DC991008510B8 /* TWWGPX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPX.m; sourceTree = "<group>"; };
 		869340F1221DCFA6008510B8 /* TWWGPXUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXUtil.h; sourceTree = "<group>"; };
 		869340F2221DCFA6008510B8 /* TWWGPXUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXUtil.m; sourceTree = "<group>"; };
+		869340F4221DE3F8008510B8 /* TWWGPXEmail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXEmail.h; sourceTree = "<group>"; };
+		869340F5221DE3F8008510B8 /* TWWGPXEmail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXEmail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,8 @@
 				869340EC221DC991008510B8 /* TWWGPX.m */,
 				869340F1221DCFA6008510B8 /* TWWGPXUtil.h */,
 				869340F2221DCFA6008510B8 /* TWWGPXUtil.m */,
+				869340F4221DE3F8008510B8 /* TWWGPXEmail.h */,
+				869340F5221DE3F8008510B8 /* TWWGPXEmail.m */,
 			);
 			path = TWWGPX;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				869340CC221D0013008510B8 /* TWWGPXPoint.m in Sources */,
 				869340EA221DC78C008510B8 /* TWWGPXDataBase.m in Sources */,
 				869340E1221DAA96008510B8 /* TWWGPXPerson.m in Sources */,
+				869340F6221DE3F8008510B8 /* TWWGPXEmail.m in Sources */,
 				869340C3221CFF8F008510B8 /* TWWGPXMetadata.m in Sources */,
 				869340C6221CFFB3008510B8 /* TWWGPXTrack.m in Sources */,
 				869340C9221CFFE4008510B8 /* TWWGPXTrackSegment.m in Sources */,

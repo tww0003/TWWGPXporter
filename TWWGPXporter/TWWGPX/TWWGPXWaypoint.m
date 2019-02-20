@@ -10,4 +10,12 @@
 
 @implementation TWWGPXWaypoint
 
+- (id) init {
+    self = [super init];
+    if(self) {
+        self.pointType = @"wpt";
+    }
+    return self;
+}
+
 @end

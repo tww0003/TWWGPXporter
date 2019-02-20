@@ -13,6 +13,7 @@
 
 + (NSString *) getCurrentTimeAsString;
 + (NSDate *) dateFromString:(NSString *) date;
-
++ (NSString *) stringFromDate:(NSDate *) date;
++ (BOOL) isNotEmptyString:(NSString *) inStr;
 @end
 

@@ -48,7 +48,7 @@
 
 /** Keywords associated with the file. Search engines or databases can use this information to classify the data.
  */
-@property NSArray *keywords;
+@property NSString *keywords;
 
 /** Minimum and maximum coordinates which describe the extent of the coordinates in the file.
  */
@@ -57,6 +57,6 @@
 - (id) initWithAuthor:(TWWGPXPerson *) author;
 - (id) initWithAuthor:(TWWGPXPerson *) author andCopyright:(TWWGPXCopyright *) copyright;
 - (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright andTime:(NSDate *) time;
-- (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright time:(NSDate *) time andKeywords:(NSArray *)keywords;
-- (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright time:(NSDate *) time keywords:(NSArray *)keywords andBounds:(TWWGPXBounds *) bounds;
+- (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright time:(NSDate *) time andKeywords:(NSString *) keywords;
+- (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright time:(NSDate *) time keywords:(NSString *) keywords andBounds:(TWWGPXBounds *) bounds;
 @end

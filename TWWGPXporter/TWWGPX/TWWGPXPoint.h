@@ -105,6 +105,8 @@
  */
 @property NSString *DGPSStationID;
 
+@property NSString *pointType;
+
 - (id) initWithLocation:(CLLocation *) location;
 
 @end
