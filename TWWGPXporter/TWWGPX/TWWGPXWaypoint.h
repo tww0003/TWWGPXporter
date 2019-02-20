@@ -8,6 +8,12 @@
 
 #import "TWWGPXPoint.h"
 
+
+/** wptType - http://www.topografix.com/GPX/1/1/#type_wptType
+ *
+ *  wpt represents a waypoint, point of interest, or named feature on a map.
+ *
+ */
 @interface TWWGPXWaypoint : TWWGPXPoint
 
 @end

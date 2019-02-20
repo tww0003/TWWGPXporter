@@ -8,6 +8,10 @@
 
 #import "TWWGPXPoint.h"
 
+/** rtept - Essentially the as waypoint but these live within routes.
+ *
+ */
+
 @interface TWWGPXRoutePoint : TWWGPXPoint
 
 @end

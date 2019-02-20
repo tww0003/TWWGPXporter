@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TWWGPXPoint.h"
 
-@interface TWWGPXTrackPoint : NSObject
+/** trkpt - Essentially the as waypoint but these live within track segments.
+ *
+ *  A Track Point holds the coordinates, elevation, timestamp, and metadata for a single point in a track.
+ *
+ */
+
+@interface TWWGPXTrackPoint : TWWGPXPoint
 
 @end

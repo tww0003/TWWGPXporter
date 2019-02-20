@@ -10,4 +10,77 @@
 
 @implementation TWWGPXTrack
 
+- (id) init {
+    self = [super init];
+    
+    if(self) {
+        _trackSegments = @[[[TWWGPXTrackSegment alloc] init]];
+    }
+    return self;
+}
+
+- (id) initWithTrackSegment:(TWWGPXTrackSegment *) segment {
+    self = [super init];
+    if(self) {
+        _trackSegments = @[segment];
+    }
+    return  self;
+}
+
+- (id) initWithName:(NSString *) name andTrackSegment:(TWWGPXTrackSegment *) segment {
+    self = [self initWithTrackSegment:segment];
+    
+    if(self) {
+        self.name = name;
+    }
+    
+    return self;
+}
+
+- (id) initWithName:(NSString *) name number:(NSNumber *) number andTrackSegment:(TWWGPXTrackSegment *) segment {
+    self = [self initWithName:name andTrackSegment:segment];
+    if (self) {
+        _number = number;
+    }
+    return self;
+}
+
+- (id) initWithTrackSegments:(NSArray *)segments {
+    self = [super init];
+    
+    if(self) {
+        _trackSegments = segments;
+    }
+    return self;
+}
+
+- (id) initWithName:(NSString *)name andTrackSegments:(NSArray *)segments {
+    self = [self initWithTrackSegments:segments];
+    
+    if(self) {
+        self.name = name;
+    }
+    return self;
+}
+
+- (id) initWithName:(NSString *)name number:(NSNumber *)number andTrackSegments:(NSArray *)segments {
+    self = [self initWithName:name andTrackSegments:segments];
+    
+    if(self) {
+        _number = number;
+    }
+    
+    return self;
+}
+
+- (void) addTrackSegment:(TWWGPXTrackSegment *) segment {
+    if(_trackSegments) {
+        NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:_trackSegments];
+        [temp addObject:segment];
+        _trackSegments = [temp copy];
+    } else {
+        _trackSegments = @[segment];
+    }
+}
+
 @end

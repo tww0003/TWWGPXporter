@@ -7,14 +7,50 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TWWGPXBase.h"
+#import "TWWGPXRoutePoint.h"
 
-@interface TWWGPXRoute : NSObject
+/** rteType - http://www.topografix.com/GPX/1/1/#type_rteType
+ *
+ *  rte represents route - an ordered list of waypoints representing a series
+ *  of turn points leading to a destination.
+ *
+ */
+@interface TWWGPXRoute : TWWGPXBase
 
-@property NSString *name;
+/** GPS name of route.
+ *  (Inherited from TWWGPXBase)
+ */
+//@property NSString *name;
+
+/** GPS comment for route.
+ */
 @property NSString *comment;
-@property NSString *desc;
+
+/** Text description of route for user. Not sent to GPS.
+ *  (Inherited from TWWGPXBase)
+ */
+//@property NSString *desc;
+
+/** Source of data. Included to give user some idea of reliability and accuracy of data.
+ */
 @property NSString *source;
-@property NSArray  *link;
-@property NSArray  *routePoints;
+
+/** Links to external information about the route.
+ *  (Inherited from TWWGPXBase)
+ */
+//@property NSArray *links;
+
+/** GPS route number.
+ */
+@property NSNumber *number;
+
+/** Type (classification) of route.
+ */
+@property NSString *type;
+
+/** A list of route points.
+ */
+@property NSArray *routePoints;
 
 @end
