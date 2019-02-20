@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TWWGPXMetadata.h"
 #import "TWWGPX.h"
+#import "TWWGPXMetadata.h"
+#import "TWWGPXRoute.h"
+#import "TWWGPXTrack.h"
+#import "TWWGPXWaypoint.h"
 
 
 /** gpxType - http://www.topografix.com/GPX/1/1/#type_gpxType
@@ -44,4 +47,12 @@
  */
 @property NSArray *tracks;
 
+- (id) initWithCreator:(NSString *) creator;
+- (id) initWithMetadata:(TWWGPXMetadata *) metadata;
+- (id) initWithWaypoint:(TWWGPXWaypoint *) waypoint;
+- (id) initWithWaypoints:(NSArray *) waypoints;
+- (id) initWithRoute:(TWWGPXRoute *) route;
+- (id) initWithRoutes:(NSArray *) routes;
+- (id) initWithTrack:(TWWGPXTrack *) track;
+- (id) initWithTracks:(NSArray *) tracks;
 @end

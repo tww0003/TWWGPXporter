@@ -54,4 +54,9 @@
  */
 @property TWWGPXBounds *bounds;
 
+- (id) initWithAuthor:(TWWGPXPerson *) author;
+- (id) initWithAuthor:(TWWGPXPerson *) author andCopyright:(TWWGPXCopyright *) copyright;
+- (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright andTime:(NSDate *) time;
+- (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright time:(NSDate *) time andKeywords:(NSArray *)keywords;
+- (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright time:(NSDate *) time keywords:(NSArray *)keywords andBounds:(TWWGPXBounds *) bounds;
 @end

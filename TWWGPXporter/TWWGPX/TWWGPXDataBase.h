@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TWWGPXBase.h"
+#import "TWWGPXPoint.h"
 
 /**
  *  GPS Tracks and GPX Routes are very similar.
@@ -20,6 +21,10 @@
 @property NSString *source;
 @property NSNumber *number;
 @property NSString *type;
+
+- (id) initWithName:(NSString *) name;
+- (id) initWithName:(NSString *) name andDescription:(NSString *) desc;
+- (void) addPoint:(TWWGPXPoint *) point;
 
 @end
 

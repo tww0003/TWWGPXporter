@@ -57,4 +57,7 @@
  */
 @property NSArray *routePoints;
 
+- (id) initWithRoutePoint:(TWWGPXRoutePoint *) routePoint;
+- (id) initWithRoutePoints:(NSArray *) routePoints;
+
 @end

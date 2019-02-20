@@ -30,6 +30,7 @@
 		869340E7221DAB31008510B8 /* TWWGPXBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340E6221DAB31008510B8 /* TWWGPXBounds.m */; };
 		869340EA221DC78C008510B8 /* TWWGPXDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340E9221DC78C008510B8 /* TWWGPXDataBase.m */; };
 		869340ED221DC991008510B8 /* TWWGPX.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340EC221DC991008510B8 /* TWWGPX.m */; };
+		869340F3221DCFA6008510B8 /* TWWGPXUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340F2221DCFA6008510B8 /* TWWGPXUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		869340E9221DC78C008510B8 /* TWWGPXDataBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXDataBase.m; sourceTree = "<group>"; };
 		869340EB221DC991008510B8 /* TWWGPX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPX.h; sourceTree = "<group>"; };
 		869340EC221DC991008510B8 /* TWWGPX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPX.m; sourceTree = "<group>"; };
+		869340F1221DCFA6008510B8 /* TWWGPXUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXUtil.h; sourceTree = "<group>"; };
+		869340F2221DCFA6008510B8 /* TWWGPXUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +190,8 @@
 				869340E9221DC78C008510B8 /* TWWGPXDataBase.m */,
 				869340EB221DC991008510B8 /* TWWGPX.h */,
 				869340EC221DC991008510B8 /* TWWGPX.m */,
+				869340F1221DCFA6008510B8 /* TWWGPXUtil.h */,
+				869340F2221DCFA6008510B8 /* TWWGPXUtil.m */,
 			);
 			path = TWWGPX;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 			files = (
 				869340C0221CFF3E008510B8 /* TWWGPXFile.m in Sources */,
 				869340CF221D002D008510B8 /* TWWGPXWaypoint.m in Sources */,
+				869340F3221DCFA6008510B8 /* TWWGPXUtil.m in Sources */,
 				8693409E221CFDC7008510B8 /* ViewController.m in Sources */,
 				869340A9221CFDC8008510B8 /* main.m in Sources */,
 				869340DB221DA966008510B8 /* TWWGPXBase.m in Sources */,

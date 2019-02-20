@@ -10,4 +10,18 @@
 
 @implementation TWWGPXDataBase
 
+- (id) initWithName:(NSString *) name {
+    self = [self initWithName:name andDescription:nil];
+    return self;
+}
+
+- (id) initWithName:(NSString *)name andDescription:(NSString *) desc {
+    self = [super init];
+    if(self) {
+        self.name = name;
+        self.desc = desc;
+    }
+    return self;
+}
+
 @end

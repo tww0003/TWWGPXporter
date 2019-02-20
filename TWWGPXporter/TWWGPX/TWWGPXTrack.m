@@ -40,7 +40,7 @@
 - (id) initWithName:(NSString *) name number:(NSNumber *) number andTrackSegment:(TWWGPXTrackSegment *) segment {
     self = [self initWithName:name andTrackSegment:segment];
     if (self) {
-        _number = number;
+        self.number = number;
     }
     return self;
 }
@@ -67,7 +67,7 @@
     self = [self initWithName:name andTrackSegments:segments];
     
     if(self) {
-        _number = number;
+        self.number = number;
     }
     
     return self;
@@ -82,5 +82,21 @@
         _trackSegments = @[segment];
     }
 }
+
+- (void) addPoint:(TWWGPXPoint *) point {
+    if([point isKindOfClass:[TWWGPXTrackPoint class]]) {
+        if(_trackSegments && [_trackSegments lastObject]) {
+            TWWGPXTrackSegment *lastSegment = (TWWGPXTrackSegment *) [_trackSegments lastObject];
+            if([lastSegment trackPoints]) {
+                NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:[lastSegment trackPoints]];
+                [temp addObject:point];
+                lastSegment.trackPoints = [temp copy];
+            } else {
+                lastSegment.trackPoints = @[point];
+            }
+        }
+    }
+}
+
 
 @end
