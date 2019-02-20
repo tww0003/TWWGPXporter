@@ -24,6 +24,8 @@
         NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:_trackPoints];
         [temp addObject:trackPoint];
         _trackPoints = [temp copy];
+    } else {
+        _trackPoints = @[trackPoint];
     }
 }
 

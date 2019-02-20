@@ -12,7 +12,7 @@
 @implementation TWWGPXPoint
 
 - (id) initWithLocation:(CLLocation *)location {
-    self = [super init];
+    self = [self init];
     
     if(self) {
         _latitude = @(location.coordinate.latitude);

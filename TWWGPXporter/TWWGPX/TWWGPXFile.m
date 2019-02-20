@@ -74,6 +74,38 @@
     return self;
 }
 
+- (void) addWayPoint:(TWWGPXWaypoint *) waypoint {
+    if(_waypoints) {
+        NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:_waypoints];
+        [temp addObject:waypoint];
+        _waypoints = [temp copy];
+    } else {
+        _waypoints = @[waypoint];
+    }
+}
+
+- (void) addTrack:(TWWGPXTrack *) track {
+    if(_tracks) {
+        NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:_tracks];
+        [temp addObject:track];
+        _tracks = [temp copy];
+    } else {
+        _tracks = @[track];
+    }
+}
+
+- (void) addRoute:(TWWGPXRoute *) route {
+    if(_routes) {
+        NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:_routes];
+        [temp addObject:route];
+        _routes = [temp copy];
+    } else {
+        _routes = @[route];
+    }
+
+}
+
+
 - (NSString *) toXMLString {
     
     NSMutableString *returnString = [NSMutableString stringWithFormat:@"<gpx version=\"%@\"", _version];

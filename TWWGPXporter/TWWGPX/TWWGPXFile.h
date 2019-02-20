@@ -55,4 +55,9 @@
 - (id) initWithRoutes:(NSArray *) routes;
 - (id) initWithTrack:(TWWGPXTrack *) track;
 - (id) initWithTracks:(NSArray *) tracks;
+
+- (void) addWayPoint:(TWWGPXWaypoint *) waypoint;
+- (void) addTrack:(TWWGPXTrack *) track;
+- (void) addRoute:(TWWGPXRoute *) route;
+
 @end
