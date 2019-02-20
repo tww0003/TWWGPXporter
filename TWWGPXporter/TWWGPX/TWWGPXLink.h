@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TWWGPX.h"
 
 
 /** linkType - http://www.topografix.com/GPX/1/1/#type_linkType
@@ -14,7 +15,7 @@
  *  A link to an external resource (Web page, digital photo, video clip, etc) with additional information.
  *
  */
-@interface TWWGPXLink : NSObject
+@interface TWWGPXLink : TWWGPX
 
 
 /** URL of hyperlink.

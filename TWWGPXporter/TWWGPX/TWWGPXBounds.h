@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TWWGPX.h"
 
 /** boundsType - http://www.topografix.com/GPX/1/1/#type_boundsType
  *
  *  Two lat/lon pairs defining the extent of an element.
  *
  */
-@interface TWWGPXBounds : NSObject
+@interface TWWGPXBounds : TWWGPX
 
 /** The minimum latitude.
  */

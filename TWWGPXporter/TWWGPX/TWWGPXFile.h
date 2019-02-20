@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TWWGPXMetadata.h"
+#import "TWWGPX.h"
 
 
 /** gpxType - http://www.topografix.com/GPX/1/1/#type_gpxType
@@ -16,7 +17,7 @@
  *   You can add your own elements to the extensions section of the GPX document.
  *
  */
-@interface TWWGPXFile : NSObject
+@interface TWWGPXFile : TWWGPX
 
 /** You must include the version number in your GPX document.
  */

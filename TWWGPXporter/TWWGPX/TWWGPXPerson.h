@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "TWWGPXLink.h"
+#import "TWWGPX.h"
+
 
 /** personType - http://www.topografix.com/GPX/1/1/#type_personType
  *
  *  A person or organization.
  *
  */
-@interface TWWGPXPerson : NSObject
+@interface TWWGPXPerson : TWWGPX
 
 /** Name of person or organization.
  */

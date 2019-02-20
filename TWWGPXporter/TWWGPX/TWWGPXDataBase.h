@@ -1,5 +1,5 @@
 //
-//  TWWGPXBase.h
+//  TWWGPXDataBase.h
 //  TWWGPXporter
 //
 //  Created by Tyler Williamson on 2/20/19.
@@ -7,19 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TWWGPX.h"
+#import "TWWGPXBase.h"
 
 /**
- *  Quite a few classes share the same properties - TWWGPXMetadata, TWWGPXTrack,
- *  TWWGPXPoint, and TWWGPXRoute.
+ *  GPS Tracks and GPX Routes are very similar.
  *  They might as well inherit the same properties from a super class.
  *  Descriptions of the properties from the GPX 1.1 Schema Docs are found in the Subclasses.
  */
+@interface TWWGPXDataBase : TWWGPXBase
 
-@interface TWWGPXBase : TWWGPX
-
-@property NSString *name;
-@property NSString *desc;
-@property NSArray  *link;
+@property NSString *comment;
+@property NSString *source;
+@property NSNumber *number;
+@property NSString *type;
 
 @end
+

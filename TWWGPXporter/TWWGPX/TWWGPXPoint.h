@@ -43,6 +43,7 @@
 /** The GPS name of the waypoint. This field will be transferred to and from the GPS.
  *  GPX does not place restrictions on the length of this field or the characters contained in it.
  *  It is up to the receiving application to validate the field before sending it to the GPS.
+ *  
  *  (Inherited from TWWGPXBase)
  */
 //@property NSString *name;
@@ -72,6 +73,7 @@
 @property NSString *symbol;
 
 /** Type (classification) of the waypoint.
+ *  ex: <type>Hiking trail</type>
  */
 @property NSString *type;
 

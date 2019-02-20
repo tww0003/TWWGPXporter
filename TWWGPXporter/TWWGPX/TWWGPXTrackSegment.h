@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TWWGPXTrackPoint.h"
-
+#import "TWWGPX.h"
 
 /** trksegType - http://www.topografix.com/GPX/1/1/#type_trksegType
  *
@@ -18,7 +18,7 @@
  *
  */
 
-@interface TWWGPXTrackSegment : NSObject
+@interface TWWGPXTrackSegment : TWWGPX
 
 /** A Track Point holds the coordinates, elevation, timestamp, and metadata for a single point in a track.
  */

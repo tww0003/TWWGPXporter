@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TWWGPX.h"
 
 /**  copyrightType - http://www.topografix.com/GPX/1/1/#type_copyrightType
  *
@@ -16,7 +17,7 @@
  *
  */
 
-@interface TWWGPXCopyright : NSObject
+@interface TWWGPXCopyright : TWWGPX
 
 /** Copyright holder (TopoSoft, Inc.)
  */

@@ -28,6 +28,8 @@
 		869340E1221DAA96008510B8 /* TWWGPXPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340E0221DAA96008510B8 /* TWWGPXPerson.m */; };
 		869340E4221DAAD9008510B8 /* TWWGPXCopyright.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340E3221DAAD9008510B8 /* TWWGPXCopyright.m */; };
 		869340E7221DAB31008510B8 /* TWWGPXBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340E6221DAB31008510B8 /* TWWGPXBounds.m */; };
+		869340EA221DC78C008510B8 /* TWWGPXDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340E9221DC78C008510B8 /* TWWGPXDataBase.m */; };
+		869340ED221DC991008510B8 /* TWWGPX.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340EC221DC991008510B8 /* TWWGPX.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,10 @@
 		869340E3221DAAD9008510B8 /* TWWGPXCopyright.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXCopyright.m; sourceTree = "<group>"; };
 		869340E5221DAB31008510B8 /* TWWGPXBounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXBounds.h; sourceTree = "<group>"; };
 		869340E6221DAB31008510B8 /* TWWGPXBounds.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXBounds.m; sourceTree = "<group>"; };
+		869340E8221DC78C008510B8 /* TWWGPXDataBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXDataBase.h; sourceTree = "<group>"; };
+		869340E9221DC78C008510B8 /* TWWGPXDataBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXDataBase.m; sourceTree = "<group>"; };
+		869340EB221DC991008510B8 /* TWWGPX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPX.h; sourceTree = "<group>"; };
+		869340EC221DC991008510B8 /* TWWGPX.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPX.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +183,10 @@
 				869340E3221DAAD9008510B8 /* TWWGPXCopyright.m */,
 				869340E5221DAB31008510B8 /* TWWGPXBounds.h */,
 				869340E6221DAB31008510B8 /* TWWGPXBounds.m */,
+				869340E8221DC78C008510B8 /* TWWGPXDataBase.h */,
+				869340E9221DC78C008510B8 /* TWWGPXDataBase.m */,
+				869340EB221DC991008510B8 /* TWWGPX.h */,
+				869340EC221DC991008510B8 /* TWWGPX.m */,
 			);
 			path = TWWGPX;
 			sourceTree = "<group>";
@@ -289,7 +299,9 @@
 				869340D8221D07EA008510B8 /* TWWGPXRoute.m in Sources */,
 				869340E4221DAAD9008510B8 /* TWWGPXCopyright.m in Sources */,
 				869340E7221DAB31008510B8 /* TWWGPXBounds.m in Sources */,
+				869340ED221DC991008510B8 /* TWWGPX.m in Sources */,
 				869340CC221D0013008510B8 /* TWWGPXPoint.m in Sources */,
+				869340EA221DC78C008510B8 /* TWWGPXDataBase.m in Sources */,
 				869340E1221DAA96008510B8 /* TWWGPXPerson.m in Sources */,
 				869340C3221CFF8F008510B8 /* TWWGPXMetadata.m in Sources */,
 				869340C6221CFFB3008510B8 /* TWWGPXTrack.m in Sources */,
