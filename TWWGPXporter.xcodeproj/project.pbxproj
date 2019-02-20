@@ -14,6 +14,15 @@
 		869340A6221CFDC8008510B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 869340A4221CFDC8008510B8 /* LaunchScreen.storyboard */; };
 		869340A9221CFDC8008510B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340A8221CFDC8008510B8 /* main.m */; };
 		869340B3221CFDC8008510B8 /* TWWGPXporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340B2221CFDC8008510B8 /* TWWGPXporterTests.m */; };
+		869340C0221CFF3E008510B8 /* TWWGPXFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340BF221CFF3E008510B8 /* TWWGPXFile.m */; };
+		869340C3221CFF8F008510B8 /* TWWGPXMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340C2221CFF8F008510B8 /* TWWGPXMetadata.m */; };
+		869340C6221CFFB3008510B8 /* TWWGPXTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340C5221CFFB3008510B8 /* TWWGPXTrack.m */; };
+		869340C9221CFFE4008510B8 /* TWWGPXTrackSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340C8221CFFE4008510B8 /* TWWGPXTrackSegment.m */; };
+		869340CC221D0013008510B8 /* TWWGPXPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340CB221D0013008510B8 /* TWWGPXPoint.m */; };
+		869340CF221D002D008510B8 /* TWWGPXWaypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340CE221D002D008510B8 /* TWWGPXWaypoint.m */; };
+		869340D2221D004B008510B8 /* TWWGPXTrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340D1221D004B008510B8 /* TWWGPXTrackPoint.m */; };
+		869340D5221D012A008510B8 /* TWWGPXRoutePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340D4221D012A008510B8 /* TWWGPXRoutePoint.m */; };
+		869340D8221D07EA008510B8 /* TWWGPXRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340D7221D07EA008510B8 /* TWWGPXRoute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,24 @@
 		869340AE221CFDC8008510B8 /* TWWGPXporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TWWGPXporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		869340B2221CFDC8008510B8 /* TWWGPXporterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXporterTests.m; sourceTree = "<group>"; };
 		869340B4221CFDC8008510B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		869340BE221CFF3E008510B8 /* TWWGPXFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXFile.h; sourceTree = "<group>"; };
+		869340BF221CFF3E008510B8 /* TWWGPXFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXFile.m; sourceTree = "<group>"; };
+		869340C1221CFF8F008510B8 /* TWWGPXMetadata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXMetadata.h; sourceTree = "<group>"; };
+		869340C2221CFF8F008510B8 /* TWWGPXMetadata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXMetadata.m; sourceTree = "<group>"; };
+		869340C4221CFFB3008510B8 /* TWWGPXTrack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXTrack.h; sourceTree = "<group>"; };
+		869340C5221CFFB3008510B8 /* TWWGPXTrack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXTrack.m; sourceTree = "<group>"; };
+		869340C7221CFFE4008510B8 /* TWWGPXTrackSegment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXTrackSegment.h; sourceTree = "<group>"; };
+		869340C8221CFFE4008510B8 /* TWWGPXTrackSegment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXTrackSegment.m; sourceTree = "<group>"; };
+		869340CA221D0013008510B8 /* TWWGPXPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXPoint.h; sourceTree = "<group>"; };
+		869340CB221D0013008510B8 /* TWWGPXPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXPoint.m; sourceTree = "<group>"; };
+		869340CD221D002D008510B8 /* TWWGPXWaypoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXWaypoint.h; sourceTree = "<group>"; };
+		869340CE221D002D008510B8 /* TWWGPXWaypoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXWaypoint.m; sourceTree = "<group>"; };
+		869340D0221D004B008510B8 /* TWWGPXTrackPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXTrackPoint.h; sourceTree = "<group>"; };
+		869340D1221D004B008510B8 /* TWWGPXTrackPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXTrackPoint.m; sourceTree = "<group>"; };
+		869340D3221D012A008510B8 /* TWWGPXRoutePoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXRoutePoint.h; sourceTree = "<group>"; };
+		869340D4221D012A008510B8 /* TWWGPXRoutePoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXRoutePoint.m; sourceTree = "<group>"; };
+		869340D6221D07EA008510B8 /* TWWGPXRoute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXRoute.h; sourceTree = "<group>"; };
+		869340D7221D07EA008510B8 /* TWWGPXRoute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXRoute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +108,7 @@
 		86934098221CFDC7008510B8 /* TWWGPXporter */ = {
 			isa = PBXGroup;
 			children = (
+				869340BD221CFEF5008510B8 /* TWWGPX */,
 				86934099221CFDC7008510B8 /* AppDelegate.h */,
 				8693409A221CFDC7008510B8 /* AppDelegate.m */,
 				8693409C221CFDC7008510B8 /* ViewController.h */,
@@ -101,6 +129,31 @@
 				869340B4221CFDC8008510B8 /* Info.plist */,
 			);
 			path = TWWGPXporterTests;
+			sourceTree = "<group>";
+		};
+		869340BD221CFEF5008510B8 /* TWWGPX */ = {
+			isa = PBXGroup;
+			children = (
+				869340BE221CFF3E008510B8 /* TWWGPXFile.h */,
+				869340BF221CFF3E008510B8 /* TWWGPXFile.m */,
+				869340C1221CFF8F008510B8 /* TWWGPXMetadata.h */,
+				869340C2221CFF8F008510B8 /* TWWGPXMetadata.m */,
+				869340C4221CFFB3008510B8 /* TWWGPXTrack.h */,
+				869340C5221CFFB3008510B8 /* TWWGPXTrack.m */,
+				869340C7221CFFE4008510B8 /* TWWGPXTrackSegment.h */,
+				869340C8221CFFE4008510B8 /* TWWGPXTrackSegment.m */,
+				869340CA221D0013008510B8 /* TWWGPXPoint.h */,
+				869340CB221D0013008510B8 /* TWWGPXPoint.m */,
+				869340CD221D002D008510B8 /* TWWGPXWaypoint.h */,
+				869340CE221D002D008510B8 /* TWWGPXWaypoint.m */,
+				869340D0221D004B008510B8 /* TWWGPXTrackPoint.h */,
+				869340D1221D004B008510B8 /* TWWGPXTrackPoint.m */,
+				869340D3221D012A008510B8 /* TWWGPXRoutePoint.h */,
+				869340D4221D012A008510B8 /* TWWGPXRoutePoint.m */,
+				869340D6221D07EA008510B8 /* TWWGPXRoute.h */,
+				869340D7221D07EA008510B8 /* TWWGPXRoute.m */,
+			);
+			path = TWWGPX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,9 +256,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				869340C0221CFF3E008510B8 /* TWWGPXFile.m in Sources */,
+				869340CF221D002D008510B8 /* TWWGPXWaypoint.m in Sources */,
 				8693409E221CFDC7008510B8 /* ViewController.m in Sources */,
 				869340A9221CFDC8008510B8 /* main.m in Sources */,
+				869340D8221D07EA008510B8 /* TWWGPXRoute.m in Sources */,
+				869340CC221D0013008510B8 /* TWWGPXPoint.m in Sources */,
+				869340C3221CFF8F008510B8 /* TWWGPXMetadata.m in Sources */,
+				869340C6221CFFB3008510B8 /* TWWGPXTrack.m in Sources */,
+				869340C9221CFFE4008510B8 /* TWWGPXTrackSegment.m in Sources */,
+				869340D5221D012A008510B8 /* TWWGPXRoutePoint.m in Sources */,
 				8693409B221CFDC7008510B8 /* AppDelegate.m in Sources */,
+				869340D2221D004B008510B8 /* TWWGPXTrackPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
