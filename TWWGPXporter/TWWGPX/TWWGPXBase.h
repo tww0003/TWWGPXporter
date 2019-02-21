@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TWWGPX.h"
+#import "TWWGPXLink.h"
 
 /**
  *  Quite a few classes share the same properties - TWWGPXMetadata, TWWGPXTrack,
@@ -21,5 +22,7 @@
 @property NSString *name;
 @property NSString *desc;
 @property NSArray  *links;
+
+- (void) addLink:(TWWGPXLink *) link;
 
 @end

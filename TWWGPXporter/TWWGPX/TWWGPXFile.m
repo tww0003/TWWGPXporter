@@ -12,9 +12,6 @@
 
 - (id) init {
     self = [super init];
-    if (self) {
-        _version = @"1.1";
-    }
     return self;
 }
 
@@ -107,7 +104,7 @@
 
 
 - (NSString *) toXMLString {
-    
+    if(!_version) _version = @"1.1";
     NSMutableString *returnString = [NSMutableString stringWithFormat:@"<gpx version=\"%@\"", _version];
     if(_creator && ![_creator isEqualToString:@""]) {
         [returnString appendFormat:@" creator=\"%@\"", _creator];

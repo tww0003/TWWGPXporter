@@ -16,7 +16,7 @@
     self = [super init];
     
     if(self) {
-        _trackSegments = @[[[TWWGPXTrackSegment alloc] init]];
+        _trackSegments = @[[[TWWGPXTrackSegment alloc] init]]; // Maybe I shouldn't do this
     }
     return self;
 }

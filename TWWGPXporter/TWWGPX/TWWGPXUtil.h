@@ -15,5 +15,8 @@
 + (NSDate *) dateFromString:(NSString *) date;
 + (NSString *) stringFromDate:(NSDate *) date;
 + (BOOL) isNotEmptyString:(NSString *) inStr;
++ (NSNumber *) numberFromString:(NSString *) string;
++ (NSString *) getTagNameForElement:(NSString *) element;
++ (BOOL) doesElementHaveObject:(NSString *) element;
 @end
 

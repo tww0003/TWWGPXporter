@@ -10,4 +10,14 @@
 
 @implementation TWWGPXBase
 
+- (void) addLink:(TWWGPXLink *) link {
+    if(_links) {
+        NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:_links];
+        [temp addObject:link];
+        _links = [temp copy];
+    } else {
+        _links = @[link];
+    }
+}
+
 @end

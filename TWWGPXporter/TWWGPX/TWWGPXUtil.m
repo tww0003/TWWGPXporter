@@ -29,4 +29,82 @@
     return NO;
 }
 
++ (NSNumber *) numberFromString:(NSString *) string {
+    NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
+    nf.numberStyle = NSNumberFormatterDecimalStyle;
+    return [nf numberFromString:string];
+}
+
++ (NSString *) getTagNameForElement:(NSString *) element {
+    
+    if([element isEqualToString:@"ele"]) {
+        return @"elevation";
+    }
+    if([element isEqualToString:@"number"]) {
+        return element;
+    }
+    if([element isEqualToString:@"geoidheight"]) {
+        return @"geoidHeight";
+    }
+    if([element isEqualToString:@"hdop"]) {
+        return @"horizontalDilution";
+    }
+    if([element isEqualToString:@"vdop"]) {
+        return @"verticalDilution";
+    }
+    if([element isEqualToString:@"pdop"]) {
+        return @"positionDilution";
+    }
+    if([element isEqualToString:@"ageofdgpsdata"]) {
+        return @"secondsSinceLastDGPSUpdate";
+    }
+    if([element isEqualToString:@"sat"]) {
+        return @"satellite";
+    }
+    if([element isEqualToString:@"magvar"]) {
+        return @"magneticVariation";
+    }
+    if([element isEqualToString:@"time"]) {
+        return element;
+    }
+    if([element isEqualToString:@"name"]) {
+        return element;
+    }
+    if([element isEqualToString:@"text"]) {
+        return element;
+    }
+    if([element isEqualToString:@"desc"]) {
+        return element;
+    }
+    if([element isEqualToString:@"cmt"]) {
+        return @"comment";
+    }
+    if([element isEqualToString:@"src"]) {
+        return @"source";
+    }
+    if([element isEqualToString:@"sym"]) {
+        return @"symbol";
+    }
+    if([element isEqualToString:@"fix"]) {
+        return element;
+    }
+
+    return nil;
+}
+
++ (BOOL) doesElementHaveObject:(NSString *) element {
+    // gpx, metadata, trk, trkseg, trkpt, rte, rtept, wpt, copyright, link, bounds, author, email,
+    
+    if([element isEqualToString:@"gpx"] || [element isEqualToString:@"metadata"] ||
+       [element isEqualToString:@"trk"] || [element isEqualToString:@"trkseg"] ||
+       [element isEqualToString:@"trkpt"] || [element isEqualToString:@"rte"] ||
+       [element isEqualToString:@"rtept"] || [element isEqualToString:@"wpt"] ||
+       [element isEqualToString:@"copyright"] || [element isEqualToString:@"link"] ||
+       [element isEqualToString:@"bounds"] || [element isEqualToString:@"author"] ||
+       [element isEqualToString:@"email"]) {
+        return YES;
+    }
+    
+    return NO;
+}
 @end
