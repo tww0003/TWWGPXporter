@@ -46,13 +46,16 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    NSLog(@"Found Characters: %@", string);
     if([TWWGPXUtil isNotEmptyString:string] && ![[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"\n"]) {
-        NSLog(@"%@", string);
-        
+        if([_currentElementName isEqualToString:@"time"]) {
+            [[_elements lastObject] setValue:[TWWGPXUtil dateFromString:string] forKey:_currentElementName];
+            return;
+        }
+
         if([_currentElementName isEqualToString:@"text"]
            || [_currentElementName isEqualToString:@"name"] || [_currentElementName isEqualToString:@"desc"]) {
             [[_elements lastObject] setValue:string forKey:[TWWGPXUtil getTagNameForElement:_currentElementName]];
+            return;
         }
         
         // NSNumber's
@@ -66,9 +69,6 @@
             [[_elements lastObject] setValue:num forKey:[TWWGPXUtil getTagNameForElement:_currentElementName]];
         }
         
-        if([_currentElementName isEqualToString:@"time"]) {
-            [[_elements lastObject] setValue:[TWWGPXUtil dateFromString:string] forKey:_currentElementName];
-        }
     }
 }
 
@@ -76,48 +76,47 @@
    namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
      attributes:(NSDictionary *) attributeDict {
     
-    NSLog(@"Did start parsing element named: %@ With attributes:%@", elementName, attributeDict);
-    
     _currentElementName = elementName;
     
     if([elementName isEqualToString:@"gpx"]) {
         _gpxFile.version = attributeDict[@"version"];
         _gpxFile.creator = attributeDict[@"creator"];
         [_elements addObject:_gpxFile];
+        return;
     }
     if([elementName isEqualToString:@"metadata"]) {
         TWWGPXMetadata *metadata = [[TWWGPXMetadata alloc] init];
         _gpxFile.metadata = metadata;
         [_elements addObject:metadata];
+        return;
     }
     if([elementName isEqualToString:@"wpt"]) {
         TWWGPXWaypoint *wpt = [[TWWGPXWaypoint alloc] init];
         [_gpxFile addWayPoint:wpt];
         [_elements addObject:wpt];
+        return;
     }
     if([elementName isEqualToString:@"trkpt"]) {
-        NSNumber *lat;
-        NSNumber *lon;
-        if(attributeDict[@"lat"] && attributeDict[@"lon"]) {
-            lat = @([attributeDict[@"lat"] floatValue]);
-            lon = @([attributeDict[@"lon"] floatValue]);
-        }
         TWWGPXTrackPoint *trkpt = [[TWWGPXTrackPoint alloc] init];
-        if(lat && lon) {
-            trkpt.latitude = lat;
-            trkpt.longitude = lon;
+        if(attributeDict[@"lat"] && attributeDict[@"lon"]) {
+            trkpt.latitude = @([attributeDict[@"lat"] floatValue]);
+            trkpt.longitude = @([attributeDict[@"lon"] floatValue]);
         }
+
         [[[[[_gpxFile tracks] lastObject] trackSegments] lastObject] addTrackPoint:trkpt];
         [_elements addObject:trkpt];
+        return;
     }
     if([elementName isEqualToString:@"rte"]) {
         TWWGPXRoute *rte = [[TWWGPXRoute alloc] init];
         [_elements addObject:rte];
+        return;
     }
     if([elementName isEqualToString:@"trk"]) {
         TWWGPXTrack *trk = [[TWWGPXTrack alloc] init];
         [_gpxFile addTrack:trk];
         [_elements addObject:trk];
+        return;
     }
     if([elementName isEqualToString:@"trkseg"]) {
         TWWGPXTrackSegment *trkseg = [[TWWGPXTrackSegment alloc] init];
@@ -127,12 +126,15 @@
         }
         
         [_elements addObject:trkseg];
+        return;
     }
     if([elementName isEqualToString:@"author"]) {
-
+        // TWWGPXPerson
+        return;
     }
     if([elementName isEqualToString:@"copyright"]) {
-
+        // TWWGPXCopyright
+        return;
     }
     if([elementName isEqualToString:@"link"]) {
         TWWGPXLink *link = [[TWWGPXLink alloc] init];
@@ -141,25 +143,29 @@
         }
         [[_elements lastObject] addLink:link];
         [_elements addObject:link];
+        return;
     }
 
     if([elementName isEqualToString:@"bounds"]) {
         TWWGPXBounds *bounds = [[TWWGPXBounds alloc] init];
         [_elements addObject:bounds];
+        return;
     }
     if([elementName isEqualToString:@"rtept"]) {
         TWWGPXRoutePoint *rtept = [[TWWGPXRoutePoint alloc] init];
         [_elements addObject:rtept];
+        return;
     }
     if([elementName isEqualToString:@"email"]) {
         TWWGPXEmail *email = [[TWWGPXEmail alloc] init];
         [_elements addObject:email];
+        return;
     }
 }
 
 -(void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    NSLog(@"Did end parsing element: %@", elementName);
     if([TWWGPXUtil doesElementHaveObject:elementName]) {
+        NSLog(@"Finished with: %@", elementName);
         [_elements removeLastObject];
     }
 }
