@@ -7,36 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "TWWGPX/TWWGPXFile.h"
-#import "TWWGPX/TWWGPXParser.h"
-
-@interface AppDelegate ()
-
-@end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    TWWGPXParser *parser = [[TWWGPXParser alloc] initWithData:[self dataFromFileName:@"Skyway_Beer_Run" andType:@"gpx"]];
-    [parser createTWWGPXFile];
-    
     return YES;
-}
-
-// Get NSData of GPX file
-- (NSData *) dataFromFileName:(NSString *) name andType:(NSString *) type {
-    return [[NSMutableData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:name ofType:type]];
-}
-
-// Strings new line character before creating NSData
-- (NSData *) dataWithNewLinesStrippedFromFileName:(NSString *) name andType:(NSString *) type {
-    NSString *gpxPath = [[NSBundle mainBundle] pathForResource:name ofType:type];
-    NSString *gpxString = [NSString stringWithContentsOfFile:gpxPath encoding:NSUTF8StringEncoding error:nil];
-    gpxString = [gpxString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    return [gpxString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

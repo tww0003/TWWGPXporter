@@ -12,6 +12,7 @@
 #import "TWWGPXRoute.h"
 #import "TWWGPXTrack.h"
 #import "TWWGPXWaypoint.h"
+#import <MapKit/MapKit.h>
 
 
 /** gpxType - http://www.topografix.com/GPX/1/1/#type_gpxType
@@ -59,5 +60,13 @@
 - (void) addWayPoint:(TWWGPXWaypoint *) waypoint;
 - (void) addTrack:(TWWGPXTrack *) track;
 - (void) addRoute:(TWWGPXRoute *) route;
+
+/** Returns a polyline created from all points.
+ *  This does not give a damn about multiple track segments and just groups them together.
+ *  If the GPX file has more than 1 track segment use getPolylines
+ */
+- (MKPolyline *) getPolyLine;
+
+- (NSArray *) getPolyLines;
 
 @end

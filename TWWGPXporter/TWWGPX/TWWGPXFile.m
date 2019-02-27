@@ -8,6 +8,11 @@
 
 #import "TWWGPXFile.h"
 
+
+@interface TWWGPXFile()
+@property MKPolyline *fullLine;
+
+@end
 @implementation TWWGPXFile
 
 - (id) init {
@@ -137,5 +142,63 @@
     return [returnString copy];
 }
 
+- (MKPolyline *) getPolyLine {
+    
+    if(_fullLine) {return _fullLine;}
+    
+    NSMutableArray *coords = [[NSMutableArray alloc] init];
+    
+    [coords addObjectsFromArray:[self getWayPointCoordinates]];
+    
+    if(_routes) {
+        for(TWWGPXRoute *route in _routes) {
+            for(TWWGPXRoutePoint *point in route.routePoints) {
+                CLLocation *loc = [[CLLocation alloc] initWithLatitude:point.latitude.floatValue longitude:point.longitude.floatValue];
+                [coords addObject:loc];
+            }
+        }
+    }
+    
+    if(_tracks) {
+        for(TWWGPXTrack *track in _tracks) {
+            for(TWWGPXTrackSegment *segment in track.trackSegments) {
+                for(TWWGPXTrackPoint *point in segment.trackPoints) {
+                    CLLocation *loc = [[CLLocation alloc] initWithLatitude:point.latitude.floatValue longitude:point.longitude.floatValue];
+                    [coords addObject:loc];
+                }
+            }
+        }
+    }
+    _fullLine = [self createPolylineFromLocations:[coords copy]];
+    return _fullLine;
+}
+
+- (MKPolyline *) createPolylineFromLocations:(NSArray *) locations {
+    CLLocationCoordinate2D *coordinateArray = malloc(sizeof(CLLocationCoordinate2D) * locations.count);
+    int index = 0;
+    for (CLLocation *loc in locations) {
+        coordinateArray[index] = loc.coordinate;
+        index++;
+    }
+    MKPolyline *line = [MKPolyline polylineWithCoordinates:coordinateArray count:locations.count];
+    free(coordinateArray);
+    return line;
+}
+
+- (NSArray *) getWayPointCoordinates {
+    NSMutableArray *coords = [[NSMutableArray alloc] init];
+    
+    if(_waypoints) {
+        for(TWWGPXWaypoint *point in _waypoints) {
+            CLLocation *loc = [[CLLocation alloc] initWithLatitude:point.latitude.floatValue longitude:point.longitude.floatValue];
+            [coords addObject:loc];
+        }
+    }
+    return [coords copy];
+}
+
+- (NSArray *) getPolyLines {
+    return nil;
+}
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Mapkit/MapKit.h>
+#import "TWWGPX/TWWGPXParser.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<MKMapViewDelegate, TWWGPXParserDelegate>
 
 
 @end

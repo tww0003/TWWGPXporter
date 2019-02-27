@@ -15,7 +15,6 @@
 @property TWWGPXFile *gpxFile;
 @property NSMutableArray *elements;
 @property NSString *currentElementName;
-
 @end
 
 @implementation TWWGPXParser
@@ -31,12 +30,23 @@
 }
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
+    NSLog(@"Parsing started");
+    NSLog(@"%@", [NSDate new]);
     _gpxFile = [[TWWGPXFile alloc] init];
     _elements = [[NSMutableArray alloc] init];
 }
 
 - (void) parserDidEndDocument:(NSXMLParser *)parser {
-    NSLog(@"Document ended");
+    NSLog(@"Parsing ended");
+    NSLog(@"%@", [NSDate new]);
+    [_gpxFile getPolyLine];
+    // Get on the main thread for this
+    __weak TWWGPXParser *weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if([weakSelf.gpxDelegate respondsToSelector:@selector(didFinishParsingGPXFile:)] && weakSelf.gpxFile) {
+            [weakSelf.gpxDelegate didFinishParsingGPXFile:weakSelf.gpxFile];
+        }
+    });
 }
 
 - (void) parser:(NSXMLParser *)parser foundAttributeDeclarationWithName:(NSString *)attributeName
@@ -75,7 +85,6 @@
 - (void) parser:(NSXMLParser *) parser didStartElement:(NSString *) elementName
    namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
      attributes:(NSDictionary *) attributeDict {
-    
     _currentElementName = elementName;
     
     if([elementName isEqualToString:@"gpx"]) {
@@ -165,7 +174,6 @@
 
 -(void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     if([TWWGPXUtil doesElementHaveObject:elementName]) {
-        NSLog(@"Finished with: %@", elementName);
         [_elements removeLastObject];
     }
 }

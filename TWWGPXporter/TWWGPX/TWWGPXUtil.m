@@ -37,7 +37,6 @@
 
 + (NSString *) getTagNameForElement:(NSString *) element {
     
-    // Should probably turn this into a switch
     if([element isEqualToString:@"ele"]) {
         return @"elevation";
     }
@@ -96,7 +95,6 @@
 + (BOOL) doesElementHaveObject:(NSString *) element {
 
     // Double check that these are all the elements that have a class
-    // Also turn this into a switch
     if([element isEqualToString:@"gpx"] || [element isEqualToString:@"metadata"] ||
        [element isEqualToString:@"trk"] || [element isEqualToString:@"trkseg"] ||
        [element isEqualToString:@"trkpt"] || [element isEqualToString:@"rte"] ||

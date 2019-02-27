@@ -9,9 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "TWWGPXFile.h"
 
+
+@protocol TWWGPXParserDelegate<NSObject>
+@optional
+- (void) didFinishParsingGPXFile:(TWWGPXFile *) gpxFile;
+@end
+
 @interface TWWGPXParser : NSXMLParser<NSXMLParserDelegate>
 
 - (id) initWithGPXData:(NSData *) gpxData;
 - (void) createTWWGPXFile;
+
+@property (nonatomic, weak) id <TWWGPXParserDelegate> gpxDelegate;
+
 
 @end
