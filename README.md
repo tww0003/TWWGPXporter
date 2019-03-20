@@ -39,8 +39,6 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 [weakSelf.parser createTWWGPXFile];
 });
 
-
-
 2. Implement the TWWGPXParser delegate method  
 
 
@@ -70,3 +68,6 @@ return renderer;
 }
 return nil;
 }
+
+
+
