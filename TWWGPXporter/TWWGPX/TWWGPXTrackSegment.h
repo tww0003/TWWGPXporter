@@ -25,6 +25,7 @@
 @property NSArray *trackPoints;
 
 - (id) initWithTrackPoint:(TWWGPXTrackPoint *) trackPoint;
+- (id) initWithTrackPoints:(NSArray *) trackPoints;
 - (void) addTrackPoint:(TWWGPXTrackPoint *) trackPoint;
 
 @end

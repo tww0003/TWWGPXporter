@@ -61,6 +61,11 @@
             [[_elements lastObject] setValue:[TWWGPXUtil dateFromString:string] forKey:_currentElementName];
             return;
         }
+        
+        if([_currentElementName isEqualToString:@"license"]) {
+            NSURL *url = [NSURL URLWithString:string];
+            [[_elements lastObject] setValue:url forKey:_currentElementName];
+        }
 
         if([_currentElementName isEqualToString:@"text"]
            || [_currentElementName isEqualToString:@"name"] || [_currentElementName isEqualToString:@"desc"]) {
@@ -68,12 +73,24 @@
             return;
         }
         
+        if([_currentElementName isEqualToString:@"keywords"]) {
+            if([_gpxFile metadata]) {
+                NSMutableString *temp = [[[_gpxFile metadata] keywords] mutableCopy];
+                if(temp) {
+                    [temp appendString:string];
+                    [[_gpxFile metadata] addKeywords:[temp copy]];
+                } else {
+                    [[_gpxFile metadata] addKeywords:string];
+                }
+            }
+        }
+        
         // NSNumber's
         if([_currentElementName isEqualToString:@"ele"] || [_currentElementName isEqualToString:@"number"]
            || [_currentElementName isEqualToString:@"geoidheight"] || [_currentElementName isEqualToString:@"hdop"]
            || [_currentElementName isEqualToString:@"vdop"] || [_currentElementName isEqualToString:@"pdop"]
            || [_currentElementName isEqualToString:@"ageofdgpsdata"] || [_currentElementName isEqualToString:@"sat"]
-           || [_currentElementName isEqualToString:@"magvar"]) {
+           || [_currentElementName isEqualToString:@"magvar"] || [_currentElementName isEqualToString:@"year"]) {
             
             NSNumber *num = @([string floatValue]);
             [[_elements lastObject] setValue:num forKey:[TWWGPXUtil getTagNameForElement:_currentElementName]];
@@ -101,6 +118,10 @@
     }
     if([elementName isEqualToString:@"wpt"]) {
         TWWGPXWaypoint *wpt = [[TWWGPXWaypoint alloc] init];
+        if(attributeDict[@"lat"] && attributeDict[@"lon"]) {
+            wpt.latitude = @([attributeDict[@"lat"] floatValue]);
+            wpt.longitude = @([attributeDict[@"lon"] floatValue]);
+        }
         [_gpxFile addWayPoint:wpt];
         [_elements addObject:wpt];
         return;
@@ -138,11 +159,20 @@
         return;
     }
     if([elementName isEqualToString:@"author"]) {
-        // TWWGPXPerson
+        TWWGPXPerson *author = [[TWWGPXPerson alloc] init];
+        [[_elements lastObject] addAuthor:author];
+        [_elements addObject:author];
         return;
     }
     if([elementName isEqualToString:@"copyright"]) {
-        // TWWGPXCopyright
+        TWWGPXCopyright *copyright = [[TWWGPXCopyright alloc] init];
+        if(attributeDict[@"author"]) {
+            copyright.author = attributeDict[@"author"];
+        }
+        if([_gpxFile metadata]) {
+            [[_gpxFile metadata] addCopyright:copyright];
+        }
+        [_elements addObject:copyright];
         return;
     }
     if([elementName isEqualToString:@"link"]) {
@@ -162,6 +192,11 @@
     }
     if([elementName isEqualToString:@"rtept"]) {
         TWWGPXRoutePoint *rtept = [[TWWGPXRoutePoint alloc] init];
+        if(attributeDict[@"lat"] && attributeDict[@"lon"]) {
+            rtept.latitude = @([attributeDict[@"lat"] floatValue]);
+            rtept.longitude = @([attributeDict[@"lon"] floatValue]);
+        }
+
         [_elements addObject:rtept];
         return;
     }
@@ -178,4 +213,8 @@
     }
 }
 
+- (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
+    NSLog(@"Oh noooooooo! Error: %@", [parseError localizedDescription]);
+    
+}
 @end

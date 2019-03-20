@@ -30,6 +30,11 @@
     return self;
 }
 
+- (void) addLink:(TWWGPXLink *) link {
+    _link = link;
+}
+
+
 - (NSString *) toXMLString {
     NSMutableString *returnString = [NSMutableString stringWithFormat:@"<name>%@</name>", _name];
     if(_email) {

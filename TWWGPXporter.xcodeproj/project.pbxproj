@@ -34,6 +34,7 @@
 		869340F3221DCFA6008510B8 /* TWWGPXUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340F2221DCFA6008510B8 /* TWWGPXUtil.m */; };
 		869340F6221DE3F8008510B8 /* TWWGPXEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 869340F5221DE3F8008510B8 /* TWWGPXEmail.m */; };
 		86B846B422270F8F00E2A669 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B846B322270F8F00E2A669 /* ViewController.m */; };
+		86EEBD3E2229837A00A5B60E /* StLouisZoo.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86EEBD3D2229837A00A5B60E /* StLouisZoo.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		869340F4221DE3F8008510B8 /* TWWGPXEmail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXEmail.h; sourceTree = "<group>"; };
 		869340F5221DE3F8008510B8 /* TWWGPXEmail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXEmail.m; sourceTree = "<group>"; };
 		86B846B322270F8F00E2A669 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		86EEBD3D2229837A00A5B60E /* StLouisZoo.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StLouisZoo.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		86934098221CFDC7008510B8 /* TWWGPXporter */ = {
 			isa = PBXGroup;
 			children = (
+				86EEBD3D2229837A00A5B60E /* StLouisZoo.gpx */,
 				86578257221E71DF003115DF /* Skyway_Beer_Run.gpx */,
 				869340BD221CFEF5008510B8 /* TWWGPX */,
 				86934099221CFDC7008510B8 /* AppDelegate.h */,
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				869340A6221CFDC8008510B8 /* LaunchScreen.storyboard in Resources */,
+				86EEBD3E2229837A00A5B60E /* StLouisZoo.gpx in Resources */,
 				86578258221E71DF003115DF /* Skyway_Beer_Run.gpx in Resources */,
 				869340A3221CFDC8008510B8 /* Assets.xcassets in Resources */,
 				869340A1221CFDC7008510B8 /* Main.storyboard in Resources */,

@@ -18,6 +18,15 @@
     return self;
 }
 
+- (id) initWithTrackPoints:(NSArray *) trackPoints {
+    self = [super init];
+    if(self) {
+        _trackPoints = trackPoints;
+    }
+    return self;
+
+}
+
 - (void) addTrackPoint:(TWWGPXTrackPoint *) trackPoint {
     
     if(_trackPoints) {

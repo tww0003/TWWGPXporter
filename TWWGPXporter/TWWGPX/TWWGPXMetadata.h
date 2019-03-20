@@ -59,4 +59,9 @@
 - (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright andTime:(NSDate *) time;
 - (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright time:(NSDate *) time andKeywords:(NSString *) keywords;
 - (id) initWithAuthor:(TWWGPXPerson *) author copyright:(TWWGPXCopyright *) copyright time:(NSDate *) time keywords:(NSString *) keywords andBounds:(TWWGPXBounds *) bounds;
+
+- (void) addAuthor:(TWWGPXPerson *) author;
+- (void) addKeywords:(NSString *) keywords;
+- (void) addTime:(NSDate *) time;
+- (void) addCopyright:(TWWGPXCopyright *) copyright;
 @end

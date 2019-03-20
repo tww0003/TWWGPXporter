@@ -62,6 +62,29 @@
     [self.mapView addOverlay:[gpxFile getPolyLine]];
     [self zoomToPolyLine:self.mapView polyline:[gpxFile getPolyLine] animated:YES];
     
+    // Show the start of the ride
+    MKPointAnnotation *start = [[MKPointAnnotation alloc] init];
+    start.coordinate = [[[[gpxFile tracks][0] trackSegments][0] trackPoints][0] getCoordinate];
+    start.title = @"Start";
+    [self.mapView addAnnotation:start];
+    
+    // Show the end of the ride
+    MKPointAnnotation *finish = [[MKPointAnnotation alloc] init];
+    finish.coordinate = [[[[[gpxFile tracks][0] trackSegments][0] trackPoints]lastObject] getCoordinate];
+    finish.title = @"Finish";
+    [self.mapView addAnnotation:finish];
+
+    
+    // This will save the data to a file. Not really useful yet but will be added to the TWWGPXFile eventually
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents directory
+//    NSLog(@"%@", documentsDirectory);
+//    NSError *error;
+//    BOOL succeed = [[gpxFile toXMLString] writeToFile:[documentsDirectory stringByAppendingPathComponent:@"myFile.gpx"] atomically:YES encoding:NSUTF8StringEncoding error:&error];
+//    if (!succeed){
+//       // do something if the save fails
+//    }
+//
 }
 
 // Get NSData of GPX file

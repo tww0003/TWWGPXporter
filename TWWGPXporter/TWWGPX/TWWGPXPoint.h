@@ -109,6 +109,8 @@
 
 - (id) initWithLocation:(CLLocation *) location;
 
+- (CLLocationCoordinate2D) getCoordinate;
+- (CLLocation *) getLocation;
 @end
 
 

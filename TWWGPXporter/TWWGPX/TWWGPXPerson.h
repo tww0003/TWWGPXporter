@@ -35,4 +35,6 @@
 - (id) initWithName:(NSString *) name andEmail:(TWWGPXEmail *) email;
 - (id) initWithName:(NSString *) name email:(TWWGPXEmail *) email andLink:(TWWGPXLink *) link;
 
+- (void) addLink:(TWWGPXLink *) link;
+
 @end

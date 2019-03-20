@@ -96,4 +96,12 @@
     return [returnString copy];
 }
 
+- (CLLocationCoordinate2D) getCoordinate {
+    return CLLocationCoordinate2DMake([_latitude floatValue], [_longitude floatValue]);
+}
+
+- (CLLocation *) getLocation {
+    return [[CLLocation alloc] initWithLatitude:[_latitude floatValue] longitude:[_longitude floatValue]];
+}
+
 @end

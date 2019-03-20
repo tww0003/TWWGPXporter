@@ -40,9 +40,6 @@
     if([element isEqualToString:@"ele"]) {
         return @"elevation";
     }
-    if([element isEqualToString:@"number"]) {
-        return element;
-    }
     if([element isEqualToString:@"geoidheight"]) {
         return @"geoidHeight";
     }
@@ -64,18 +61,6 @@
     if([element isEqualToString:@"magvar"]) {
         return @"magneticVariation";
     }
-    if([element isEqualToString:@"time"]) {
-        return element;
-    }
-    if([element isEqualToString:@"name"]) {
-        return element;
-    }
-    if([element isEqualToString:@"text"]) {
-        return element;
-    }
-    if([element isEqualToString:@"desc"]) {
-        return element;
-    }
     if([element isEqualToString:@"cmt"]) {
         return @"comment";
     }
@@ -85,11 +70,8 @@
     if([element isEqualToString:@"sym"]) {
         return @"symbol";
     }
-    if([element isEqualToString:@"fix"]) {
-        return element;
-    }
 
-    return nil;
+    return element;
 }
 
 + (BOOL) doesElementHaveObject:(NSString *) element {

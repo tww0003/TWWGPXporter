@@ -93,5 +93,20 @@
     return [returnString copy];
 }
 
+- (void) addAuthor:(TWWGPXPerson *) author {
+    _author = author;
+}
+
+- (void) addCopyright:(TWWGPXCopyright *) copyright {
+    _copyright = copyright;
+}
+
+- (void) addKeywords:(NSString *) keywords{
+    _keywords = [keywords stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+}
+
+- (void) addTime:(NSDate *) time {
+    _time = time;
+}
 
 @end
