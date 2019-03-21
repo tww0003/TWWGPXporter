@@ -201,4 +201,23 @@
     return nil;
 }
 
+- (MKPointAnnotation *) getStartPoint {
+    if([[[[[_tracks firstObject] trackSegments] firstObject] trackPoints] firstObject]) {
+        MKPointAnnotation *start = [[MKPointAnnotation alloc] init];
+        start.coordinate = [[[[[[_tracks firstObject] trackSegments] firstObject] trackPoints] firstObject] getCoordinate];
+        start.title = @"Start";
+        return start;
+    }
+    return nil;
+}
+
+- (MKPointAnnotation *) getFinishPoint {
+    if([[[[[_tracks lastObject] trackSegments] lastObject] trackPoints] lastObject]){
+        MKPointAnnotation *finish = [[MKPointAnnotation alloc] init];
+        finish.coordinate = [[[[[[_tracks lastObject] trackSegments] lastObject] trackPoints] lastObject] getCoordinate];
+        finish.title = @"Finish";
+        return finish;
+    }
+    return nil;
+}
 @end

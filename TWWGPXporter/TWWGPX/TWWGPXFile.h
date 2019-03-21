@@ -66,7 +66,15 @@
  *  If the GPX file has more than 1 track segment use getPolylines
  */
 - (MKPolyline *) getPolyLine;
-
 - (NSArray *) getPolyLines;
+/* Gets annotation for the first point in the GPX file.
+   If there are multiple tracks it will select the first track.
+ */
+- (MKPointAnnotation *) getStartPoint;
+
+/* Gets annotation for the last point in the GPX file.
+   If there are multiple tracks it will select the last tracks last point.
+ */
+- (MKPointAnnotation *) getFinishPoint;
 
 @end

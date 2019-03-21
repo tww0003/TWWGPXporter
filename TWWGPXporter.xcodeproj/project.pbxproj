@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		860243F1221E46B600937409 /* TWWGPXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 860243F0221E46B600937409 /* TWWGPXParser.m */; };
 		86578258221E71DF003115DF /* Skyway_Beer_Run.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 86578257221E71DF003115DF /* Skyway_Beer_Run.gpx */; };
+		8686B2762243CC8E00AEA8BA /* TWWGPXTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8686B2752243CC8E00AEA8BA /* TWWGPXTools.m */; };
 		8693409B221CFDC7008510B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8693409A221CFDC7008510B8 /* AppDelegate.m */; };
 		869340A1221CFDC7008510B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8693409F221CFDC7008510B8 /* Main.storyboard */; };
 		869340A3221CFDC8008510B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 869340A2221CFDC8008510B8 /* Assets.xcassets */; };
@@ -51,6 +52,8 @@
 		860243EF221E46B600937409 /* TWWGPXParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXParser.h; sourceTree = "<group>"; };
 		860243F0221E46B600937409 /* TWWGPXParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXParser.m; sourceTree = "<group>"; };
 		86578257221E71DF003115DF /* Skyway_Beer_Run.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Skyway_Beer_Run.gpx; sourceTree = "<group>"; };
+		8686B2742243CC8E00AEA8BA /* TWWGPXTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWWGPXTools.h; sourceTree = "<group>"; };
+		8686B2752243CC8E00AEA8BA /* TWWGPXTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWWGPXTools.m; sourceTree = "<group>"; };
 		86934096221CFDC7008510B8 /* TWWGPXporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TWWGPXporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86934099221CFDC7008510B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8693409A221CFDC7008510B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				869340F5221DE3F8008510B8 /* TWWGPXEmail.m */,
 				860243EF221E46B600937409 /* TWWGPXParser.h */,
 				860243F0221E46B600937409 /* TWWGPXParser.m */,
+				8686B2742243CC8E00AEA8BA /* TWWGPXTools.h */,
+				8686B2752243CC8E00AEA8BA /* TWWGPXTools.m */,
 			);
 			path = TWWGPX;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				869340DB221DA966008510B8 /* TWWGPXBase.m in Sources */,
 				869340D8221D07EA008510B8 /* TWWGPXRoute.m in Sources */,
 				869340E4221DAAD9008510B8 /* TWWGPXCopyright.m in Sources */,
+				8686B2762243CC8E00AEA8BA /* TWWGPXTools.m in Sources */,
 				869340E7221DAB31008510B8 /* TWWGPXBounds.m in Sources */,
 				869340ED221DC991008510B8 /* TWWGPX.m in Sources */,
 				869340CC221D0013008510B8 /* TWWGPXPoint.m in Sources */,

@@ -63,16 +63,10 @@
     [self zoomToPolyLine:self.mapView polyline:[gpxFile getPolyLine] animated:YES];
     
     // Show the start of the ride
-    MKPointAnnotation *start = [[MKPointAnnotation alloc] init];
-    start.coordinate = [[[[gpxFile tracks][0] trackSegments][0] trackPoints][0] getCoordinate];
-    start.title = @"Start";
-    [self.mapView addAnnotation:start];
+    [self.mapView addAnnotation:[gpxFile getStartPoint]];
     
     // Show the end of the ride
-    MKPointAnnotation *finish = [[MKPointAnnotation alloc] init];
-    finish.coordinate = [[[[[gpxFile tracks][0] trackSegments][0] trackPoints]lastObject] getCoordinate];
-    finish.title = @"Finish";
-    [self.mapView addAnnotation:finish];
+    [self.mapView addAnnotation:[gpxFile getFinishPoint]];
 
     
     // This will save the data to a file. Not really useful yet but will be added to the TWWGPXFile eventually
