@@ -23,6 +23,7 @@
 @property TWWGPXPoint *lowPoint;
 @property TWWGPXPoint *highPoint;
 @property BOOL first;
+@property NSDate *start;
 @end
 
 @implementation TWWGPXParser
@@ -39,7 +40,9 @@
 
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
     NSLog(@"Parsing started");
-    NSLog(@"%@", [NSDate new]);
+    _start = [NSDate new];
+    NSLog(@"%@", _start);
+
     _eleGain = 0;
     _eleLoss = 0;
     _eleHigh = 0;
@@ -53,6 +56,9 @@
 - (void) parserDidEndDocument:(NSXMLParser *)parser {
     NSLog(@"Parsing ended");
     NSLog(@"%@", [NSDate new]);
+    NSDateComponents *components = [[NSCalendar currentCalendar] components: NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:_start toDate:[NSDate new] options: 0];
+    NSLog(@"Parsing took %lu minutes and %lu seconds", [components minute], [components second]);
+    
     [_gpxFile setValue:@(_eleGain) forKey:@"eleGain"];
     [_gpxFile setValue:@(_eleLoss) forKey:@"eleLoss"];
     [_gpxFile setValue:@(_eleHigh) forKey:@"eleHigh"];
