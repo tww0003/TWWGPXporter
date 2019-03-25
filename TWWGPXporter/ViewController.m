@@ -25,7 +25,7 @@
     
     [self.view addSubview:self.mapView];
     __weak ViewController *weakSelf = self;
-    _parser = [[TWWGPXParser alloc] initWithData:[TWWGPXTools dataFromFileName:@"Skyway_Beer_Run" andType:@"gpx"]];
+    _parser = [[TWWGPXParser alloc] initWithData:[TWWGPXTools dataFromFileName:@"Fried_Clay_200k" andType:@"gpx"]];
     _parser.gpxDelegate = self;
 
     // Parsing the GPX file can take a while depending on how many points the file contains,
