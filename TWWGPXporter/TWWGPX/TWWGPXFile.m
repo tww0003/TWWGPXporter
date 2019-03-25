@@ -15,6 +15,7 @@
 @property NSNumber *eleLoss;
 @property NSNumber *eleHigh;
 @property NSNumber *eleLow;
+@property NSNumber *totalDistance;
 @property TWWGPXPoint *lowPoint;
 @property TWWGPXPoint *highPoint;
 @end
@@ -292,4 +293,10 @@
     return nil;
 }
 
+- (NSNumber *) getTotalDistance {
+    if(!_totalDistance) {
+        return @(0);
+    }
+    return _totalDistance;
+}
 @end

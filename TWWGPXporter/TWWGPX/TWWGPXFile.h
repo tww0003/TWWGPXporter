@@ -109,5 +109,7 @@
  */
 - (MKPointAnnotation *) getLowestElevationPoint;
 
-
+/* Returns the total distance in meters. NOTE: this is only for track points.
+ */
+- (NSNumber *) getTotalDistance;
 @end

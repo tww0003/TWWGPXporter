@@ -22,8 +22,10 @@
 @property float prevEle; // elevation of the previous point
 @property TWWGPXPoint *lowPoint;
 @property TWWGPXPoint *highPoint;
+@property TWWGPXPoint *lastPoint;
 @property BOOL first;
 @property NSDate *start;
+@property double totalDistance;
 @end
 
 @implementation TWWGPXParser
@@ -48,6 +50,7 @@
     _eleHigh = 0;
     _eleLow  = 0;
     _prevEle = 0;
+    _totalDistance = 0;
     _first = YES;
     _gpxFile = [[TWWGPXFile alloc] init];
     _elements = [[NSMutableArray alloc] init];
@@ -63,6 +66,7 @@
     [_gpxFile setValue:@(_eleLoss) forKey:@"eleLoss"];
     [_gpxFile setValue:@(_eleHigh) forKey:@"eleHigh"];
     [_gpxFile setValue:@(_eleLow) forKey:@"eleLow"];
+    [_gpxFile setValue:@(_totalDistance) forKey:@"totalDistance"];
     [_gpxFile setValue:_lowPoint forKey:@"lowPoint"];
     [_gpxFile setValue:_highPoint forKey:@"highPoint"];
     [_gpxFile getPolyLine];
@@ -190,6 +194,11 @@
         }
 
         [[[[[_gpxFile tracks] lastObject] trackSegments] lastObject] addTrackPoint:trkpt];
+        if(_lastPoint) {
+            double temp = (double) [[trkpt getLocation] distanceFromLocation:[_lastPoint getLocation]];
+            _totalDistance = temp + _totalDistance;
+        }
+        _lastPoint = trkpt;
         [_elements addObject:trkpt];
         return;
     }
