@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import <Mapkit/MapKit.h>
+#import "TWWGPX.h"
+#import "TWWGPXFile.h"
 
 @interface TWWGPXTools : NSObject
-
++ (NSData *) dataFromFileName:(NSString *) name andType:(NSString *) type;
++ (NSData *) dataWithNewLinesStrippedFromFileName:(NSString *) name andType:(NSString *) type;
++ (void) zoomToPolyLine:(MKMapView *) mapView polyline:(MKPolyline*)polyline animated:(BOOL) animated;
++ (NSString *) saveGPXFile:(TWWGPXFile *) file withName:(NSString *) name;
 @end
-
-NS_ASSUME_NONNULL_END

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "TWWGPXFile.h"
+#import "TWWGPXTools.h"
 
 @interface ViewController ()
 @property MKMapView *mapView;
@@ -60,25 +61,19 @@
 
 - (void) didFinishParsingGPXFile:(TWWGPXFile *) gpxFile {
     [self.mapView addOverlay:[gpxFile getPolyLine]];
-    [self zoomToPolyLine:self.mapView polyline:[gpxFile getPolyLine] animated:YES];
+    [TWWGPXTools zoomToPolyLine:self.mapView polyline:[gpxFile getPolyLine] animated:YES];
     
     // Show the start of the ride
     [self.mapView addAnnotation:[gpxFile getStartPoint]];
     
     // Show the end of the ride
     [self.mapView addAnnotation:[gpxFile getFinishPoint]];
-
     
-    // This will save the data to a file. Not really useful yet but will be added to the TWWGPXFile eventually
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents directory
-//    NSLog(@"%@", documentsDirectory);
-//    NSError *error;
-//    BOOL succeed = [[gpxFile toXMLString] writeToFile:[documentsDirectory stringByAppendingPathComponent:@"myFile.gpx"] atomically:YES encoding:NSUTF8StringEncoding error:&error];
-//    if (!succeed){
-//       // do something if the save fails
-//    }
-//
+    // Show the highest point
+    [self.mapView addAnnotation:[gpxFile getHighestElevationPoint]];
+    
+    // Show the lowest point
+    [self.mapView addAnnotation:[gpxFile getLowestElevationPoint]];
 }
 
 // Get NSData of GPX file

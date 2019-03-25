@@ -15,6 +15,14 @@
 @property TWWGPXFile *gpxFile;
 @property NSMutableArray *elements;
 @property NSString *currentElementName;
+@property float eleGain; // correct-sh
+@property float eleLoss; // correct-ish
+@property float eleHigh; // correct
+@property float eleLow;  // correct
+@property float prevEle; // elevation of the previous point
+@property TWWGPXPoint *lowPoint;
+@property TWWGPXPoint *highPoint;
+@property BOOL first;
 @end
 
 @implementation TWWGPXParser
@@ -32,6 +40,12 @@
 - (void)parserDidStartDocument:(NSXMLParser *)parser {
     NSLog(@"Parsing started");
     NSLog(@"%@", [NSDate new]);
+    _eleGain = 0;
+    _eleLoss = 0;
+    _eleHigh = 0;
+    _eleLow  = 0;
+    _prevEle = 0;
+    _first = YES;
     _gpxFile = [[TWWGPXFile alloc] init];
     _elements = [[NSMutableArray alloc] init];
 }
@@ -39,6 +53,12 @@
 - (void) parserDidEndDocument:(NSXMLParser *)parser {
     NSLog(@"Parsing ended");
     NSLog(@"%@", [NSDate new]);
+    [_gpxFile setValue:@(_eleGain) forKey:@"eleGain"];
+    [_gpxFile setValue:@(_eleLoss) forKey:@"eleLoss"];
+    [_gpxFile setValue:@(_eleHigh) forKey:@"eleHigh"];
+    [_gpxFile setValue:@(_eleLow) forKey:@"eleLow"];
+    [_gpxFile setValue:_lowPoint forKey:@"lowPoint"];
+    [_gpxFile setValue:_highPoint forKey:@"highPoint"];
     [_gpxFile getPolyLine];
     // Get on the main thread for this
     __weak TWWGPXParser *weakSelf = self;
@@ -92,8 +112,38 @@
            || [_currentElementName isEqualToString:@"ageofdgpsdata"] || [_currentElementName isEqualToString:@"sat"]
            || [_currentElementName isEqualToString:@"magvar"] || [_currentElementName isEqualToString:@"year"]) {
             
+            float numVal = [string floatValue];
             NSNumber *num = @([string floatValue]);
             [[_elements lastObject] setValue:num forKey:[TWWGPXUtil getTagNameForElement:_currentElementName]];
+            if(![_currentElementName isEqualToString:@"ele"]) return;
+            if(_first) {
+                _eleLow = numVal;
+                _eleHigh = numVal;
+                _prevEle = numVal;
+                _first = NO;
+                return;
+            }
+            if(numVal - _prevEle > 0) {
+                float temp = (numVal - _prevEle) + _eleGain;
+                _eleGain = temp;
+            }
+            if(numVal - _eleHigh > 0) {
+                _eleHigh = numVal;
+                if([[_elements lastObject] isKindOfClass:[TWWGPXPoint class]]) {
+                    _highPoint = [_elements lastObject];
+                }
+            }
+            if(numVal - _eleLow < 0) {
+                _eleLow = numVal;
+                if([[_elements lastObject] isKindOfClass:[TWWGPXPoint class]]) {
+                    _lowPoint = [_elements lastObject];
+                }
+            }
+            if(numVal - _prevEle < 0) {
+                float temp = (_prevEle - numVal) + _eleLoss;
+                _eleLoss = temp;
+            }
+            _prevEle = numVal;
         }
         
     }

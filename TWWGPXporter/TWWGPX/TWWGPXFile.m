@@ -11,7 +11,12 @@
 
 @interface TWWGPXFile()
 @property MKPolyline *fullLine;
-
+@property NSNumber *eleGain;
+@property NSNumber *eleLoss;
+@property NSNumber *eleHigh;
+@property NSNumber *eleLow;
+@property TWWGPXPoint *lowPoint;
+@property TWWGPXPoint *highPoint;
 @end
 @implementation TWWGPXFile
 
@@ -220,4 +225,71 @@
     }
     return nil;
 }
+
+- (NSNumber *) getElevationGain {
+    if(_eleGain) {
+        return _eleGain;
+    } else {
+        return @(0);
+    }
+}
+
+- (NSNumber *) getElevantionLoss {
+    if(_eleLoss) {
+        return _eleLoss;
+    } else {
+        return @(0);
+    }
+}
+
+- (NSNumber *) getHighestElevation {
+    if(_eleHigh) {
+        return _eleHigh;
+    } else {
+        return @(0);
+    }
+}
+
+- (NSNumber *) getLowestElevation {
+    if(_eleLow) {
+        return _eleLow;
+    } else {
+        return @(0);
+    }
+}
+
+- (TWWGPXPoint *) getHighestElevationGPXPoint {
+    if(_highPoint) {
+        return _highPoint;
+    }
+    return nil;
+}
+
+- (TWWGPXPoint *) getLowestElevationGPXPoint {
+    if(_lowPoint) {
+        return _lowPoint;
+    }
+    return nil;
+}
+
+- (MKPointAnnotation *) getHighestElevationPoint {
+    if(_highPoint) {
+        MKPointAnnotation *highPt = [[MKPointAnnotation alloc] init];
+        highPt.coordinate = [_highPoint getCoordinate];
+        highPt.title = @"High Point";
+        return highPt;
+    }
+    return nil;
+}
+
+- (MKPointAnnotation *) getLowestElevationPoint {
+    if(_lowPoint) {
+        MKPointAnnotation *lowPt = [[MKPointAnnotation alloc] init];
+        lowPt.coordinate = [_lowPoint getCoordinate];
+        lowPt.title = @"Low Point";
+        return lowPt;
+    }
+    return nil;
+}
+
 @end

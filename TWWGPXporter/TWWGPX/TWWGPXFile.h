@@ -77,4 +77,37 @@
  */
 - (MKPointAnnotation *) getFinishPoint;
 
+/* Returns total elevation gain for the gpx file in meters.
+ */
+- (NSNumber *) getElevationGain;
+
+/* Returns total elevation gain for the gpx file in meters.
+ */
+- (NSNumber *) getElevantionLoss;
+
+/* Returns the highest elevation on the gpx file in meters.
+ */
+- (NSNumber *) getHighestElevation;
+
+/* Returns the lowest elevation on the gpx file in meters.
+ */
+- (NSNumber *) getLowestElevation;
+
+/* Returns the TWWGPXPoint of the highest elevation on the gpx file.
+ */
+- (TWWGPXPoint *) getHighestElevationGPXPoint;
+
+/* Returns the TWWGPXPoint of the lowest elevation on the gpx file.
+ */
+- (TWWGPXPoint *) getLowestElevationGPXPoint;
+
+/* Returns an MKPointAnnotation of the highest elevation on the gpx file.
+ */
+- (MKPointAnnotation *) getHighestElevationPoint;
+
+/* Returns an MKPointAnnotation of the lowest elevation on the gpx file.
+ */
+- (MKPointAnnotation *) getLowestElevationPoint;
+
+
 @end
