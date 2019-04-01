@@ -43,4 +43,16 @@
     return filePath;
 }
 
++ (float) milesToMeters:(float) miles {
+    return miles * 1609.344;
+}
+
++ (float) metersToMiles:(float) meters {
+    return meters / 1609.344;
+}
+
++ (float) metersToFeet:(float) meters {
+    return [TWWGPXTools metersToMiles:meters] * 5280;
+}
+
 @end

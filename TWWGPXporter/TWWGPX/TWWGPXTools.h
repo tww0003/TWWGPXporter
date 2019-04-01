@@ -16,4 +16,7 @@
 + (NSData *) dataWithNewLinesStrippedFromFileName:(NSString *) name andType:(NSString *) type;
 + (void) zoomToPolyLine:(MKMapView *) mapView polyline:(MKPolyline*)polyline animated:(BOOL) animated;
 + (NSString *) saveGPXFile:(TWWGPXFile *) file withName:(NSString *) name;
++ (float) milesToMeters:(float) miles;
++ (float) metersToMiles:(float) meters;
++ (float) metersToFeet:(float) meters;
 @end

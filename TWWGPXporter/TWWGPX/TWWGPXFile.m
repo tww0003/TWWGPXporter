@@ -7,7 +7,7 @@
 //
 
 #import "TWWGPXFile.h"
-
+#import "TWWGPXTools.h"
 
 @interface TWWGPXFile()
 @property MKPolyline *fullLine;
@@ -212,6 +212,7 @@
         MKPointAnnotation *start = [[MKPointAnnotation alloc] init];
         start.coordinate = [[[[[[_tracks firstObject] trackSegments] firstObject] trackPoints] firstObject] getCoordinate];
         start.title = @"Start";
+        start.subtitle = _metadata.name ?: @"My Route";
         return start;
     }
     return nil;
@@ -222,6 +223,7 @@
         MKPointAnnotation *finish = [[MKPointAnnotation alloc] init];
         finish.coordinate = [[[[[[_tracks lastObject] trackSegments] lastObject] trackPoints] lastObject] getCoordinate];
         finish.title = @"Finish";
+        finish.subtitle = [NSString stringWithFormat:@"%f", [TWWGPXTools metersToMiles:[self.totalDistance floatValue]]];
         return finish;
     }
     return nil;
@@ -278,6 +280,7 @@
         MKPointAnnotation *highPt = [[MKPointAnnotation alloc] init];
         highPt.coordinate = [_highPoint getCoordinate];
         highPt.title = @"High Point";
+        highPt.subtitle = [NSString stringWithFormat:@"%f",[TWWGPXTools metersToFeet:[[_highPoint elevation] floatValue]]];
         return highPt;
     }
     return nil;
@@ -288,6 +291,7 @@
         MKPointAnnotation *lowPt = [[MKPointAnnotation alloc] init];
         lowPt.coordinate = [_lowPoint getCoordinate];
         lowPt.title = @"Low Point";
+        lowPt.subtitle = [NSString stringWithFormat:@"%f",[TWWGPXTools metersToFeet:[[_lowPoint elevation] floatValue]]];
         return lowPt;
     }
     return nil;
